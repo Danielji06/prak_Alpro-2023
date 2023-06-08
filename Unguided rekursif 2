@@ -1,0 +1,42 @@
+import re
+
+def cek_password(password):
+    # Cek panjang password
+    if len(password) < 6 or len(password) > 20:
+        print("Password tidak valid")
+        return
+
+    # Cek whitespace
+    if re.search(r'\s', password):
+        print("Password tidak valid")
+        return
+
+    # Cek kekuatan password
+    terdiri_dari = {
+        "huruf_besar": False,
+        "huruf_kecil": False,
+        "angka": False,
+        "karakter_spesial": False
+    }
+
+    def cek_kekuatan_password(password):
+        if not password:
+            if all(terdiri_dari.values()):
+                print("Password kuat")
+            else:
+                print("Password lemah")
+            return
+
+        char = password[0]
+        if char.isupper():
+            terdiri_dari["huruf_besar"] = True
+        elif char.islower():
+            terdiri_dari["huruf_kecil"] = True
+        elif char.isdigit():
+            terdiri_dari["angka"] = True
+        else:
+            terdiri_dari["karakter_spesial"] = True
+
+        cek_kekuatan_password(password[1:])
+
+    cek_kekuatan_password(password)
