@@ -1,62 +1,61 @@
-// Class User (provided)
+// User.java
 public class User {
-    protected String nama;
-    protected String email;
-    protected int uang;
+    private String nama;
+    private String email;
+    private int uang;
+    private String PIN;
+    private boolean isEmailConfirmed;
 
     public User(String nama, String email, int uang) {
         this.nama = nama;
         this.email = email;
         this.uang = uang;
-    }
-
-    public void withdraw(int jumlah) {
-        // implementation
-    }
-
-    public void generatePIN() {
-        // implementation
+        this.isEmailConfirmed = false;
+        this.PIN = generatePIN();
     }
 
     public void emailConfirmation() {
-        // implementation
+        this.isEmailConfirmed = true;
+        System.out.println("Email berhasil dikonfirmasi!");
     }
 
-    public void getinfo() {
-        // implementation
+    public void generatePIN() {
+        // Implementasi generatePIN() sesuai kebutuhan
     }
+
+    // Getter dan setter lainnya sesuai kebutuhan
 }
 
-// Class eWallet
+// eWallet.java
 public class eWallet {
-    protected User user;
-    protected int saldo;
-    protected String PIN;
+    private User user;
+    private int saldo;
 
     public eWallet(User user) {
         this.user = user;
         this.saldo = 0;
-        this.PIN = user.generatePIN();
     }
 
     public void topup(int jumlah) {
-        // implementation
+        // Implementasi topup() sesuai kebutuhan
     }
 
-    public void transfer(eWallet eWallet, int jumlah) {
-        // implementation
+    public void transfer(eWallet tujuan, int jumlah) {
+        // Implementasi transfer() sesuai kebutuhan
     }
 
     public void withdraw(int jumlah) {
-        // implementation
+        // Implementasi withdraw() sesuai kebutuhan
     }
 
     public void getInfo() {
-        // implementation
+        // Implementasi getInfo() sesuai kebutuhan
     }
+
+    // Getter dan setter lainnya sesuai kebutuhan
 }
 
-// Class ShopeePay
+// ShopeePay.java
 public class ShopeePay extends eWallet {
     private final int feeTopup = 1000;
     private final int feeTransfer = 500;
@@ -67,26 +66,26 @@ public class ShopeePay extends eWallet {
 
     @Override
     public void topup(int jumlah) {
-        // implementation
+        // Implementasi topup() untuk ShopeePay sesuai kebutuhan
     }
 
     @Override
-    public void transfer(eWallet eWallet, int jumlah) {
-        // implementation
+    public void transfer(eWallet tujuan, int jumlah) {
+        // Implementasi transfer() untuk ShopeePay sesuai kebutuhan
     }
 
     @Override
     public void withdraw(int jumlah) {
-        // implementation
+        // Implementasi withdraw() untuk ShopeePay sesuai kebutuhan
     }
 
     @Override
     public void getInfo() {
-        // implementation
+        // Implementasi getInfo() untuk ShopeePay sesuai kebutuhan
     }
 }
 
-// Class GoPay
+// GoPay.java
 public class GoPay extends eWallet {
     private final int feeTopup = 1000;
     private final int feeTransfer = 500;
@@ -98,21 +97,28 @@ public class GoPay extends eWallet {
 
     @Override
     public void topup(int jumlah) {
-        // implementation
+        // Implementasi topup() untuk GoPay sesuai kebutuhan
     }
 
     @Override
-    public void transfer(eWallet eWallet, int jumlah) {
-        // implementation
+    public void transfer(eWallet tujuan, int jumlah) {
+        // Implementasi transfer() untuk GoPay sesuai kebutuhan
     }
 
     @Override
     public void withdraw(int jumlah) {
-        // implementation
+        // Implementasi withdraw() untuk GoPay sesuai kebutuhan
     }
 
     @Override
     public void getInfo() {
-        // implementation
+        // Implementasi getInfo() untuk GoPay sesuai kebutuhan
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Implementasi pengujian sesuai kebutuhan
     }
 }
