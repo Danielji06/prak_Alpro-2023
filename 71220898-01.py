@@ -1,33 +1,38 @@
-jarak = int(input("Masukkan jarak: "))
-batas_a = int(input("Masukkan batas nilai: "))
-nilai = int(input("Masukkan nilai: "))
+// eWallet class
+public class eWallet {
+    // Implementasi method topup untuk menambah saldo eWallet dari uang cash, termasuk perhitungan fee
+    public void topup(int jumlah) {
+        // Mengurangi uang cash user dengan jumlah yang ditop up
+        user.uang -= jumlah;
+        // Menambahkan saldo eWallet dengan jumlah yang ditop up dikurangi feeTopup
+        saldo += jumlah - feeTopup;
+        System.out.println("Top up sebesar Rp" + jumlah + " berhasil! (Fee: Rp" + feeTopup + ")");
+    }
 
-batas_a_minus = batas_a - jarak
-batas_b_plus = batas_a_minus - jarak
-batas_b = batas_b_plus - jarak
-batas_b_minus = batas_b - jarak
-batas_c_plus = batas_b_minus - jarak
-batas_c = batas_c_plus - jarak
-batas_d = batas_c - jarak
-batas_e = batas_d - jarak
+    // Implementasi method transfer untuk mentransfer saldo antar eWallet, termasuk perhitungan fee
+    public void transfer(eWallet eWallet, int jumlah) {
+        // Menambah saldo penerima dengan jumlah transfer
+        eWallet.saldo += jumlah;
+        // Mengurangi saldo pengirim dengan jumlah transfer dan feeTransfer
+        saldo -= (jumlah + feeTransfer);
+        System.out.println("Transfer saldo sebesar Rp" + jumlah + " berhasil! (Fee: Rp" + feeTransfer + ")");
+    }
 
-if nilai >= batas_a:
-    hasil = "A" #nilai >= 85
-elif nilai >= batas_a_minus:
-    hasil = "A-" #nilai >= 80
-elif nilai >= batas_b_plus:
-    hasil = "B+" #nilai >= 75
-elif nilai >= batas_b:
-    hasil = "B" #nilai >= 70
-elif nilai >= batas_b_minus:
-    hasil = "B-" #nilai >= 65
-elif nilai >= batas_c_plus:
-    hasil = "C+" #nilai >= 60
-elif nilai >= batas_c:
-    hasil = "C" #nilai >= 55
-elif nilai >= batas_d:
-    hasil = "D" #nilai >= 50
-else:
-    hasil = "E" #nilai >= 45
+    // Implementasi method withdraw untuk menarik saldo dari eWallet ke uang cash, termasuk perhitungan fee
+    public void withdraw(int jumlah) {
+        // Mengurangi saldo eWallet dengan jumlah yang ditarik dan feeWithdraw
+        saldo -= (jumlah + feeWithdraw);
+        // Menambah uang cash user dengan jumlah yang ditarik
+        user.uang += jumlah;
+        System.out.println("Withdraw saldo sebesar Rp" + jumlah + " berhasil! (Fee: Rp" + feeWithdraw + ")");
+    }
 
-print(f"Jarak={jarak}, batas_a={batas_a}, nilai={nilai}. Maka jawabannya adalah {hasil} ")
+    // Implementasi method getInfo untuk menampilkan informasi akun user
+    public void getInfo() {
+        System.out.println("[e-Wallet]");
+        System.out.println("Nama: " + user.nama);
+        System.out.println("Email: " + user.email);
+        System.out.println("Uang cash: Rp" + user.uang);
+        System.out.println("Saldo e-wallet: Rp" + saldo);
+    }
+}
