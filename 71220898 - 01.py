@@ -1,9 +1,118 @@
-nilai_x1 = int(input("Masukkan nilai x2 :"))
-nilai_y1 = int(input("Masukkan nilai y1 :"))
-nilai_x2 = int(input("Masukkan nilai x2 :"))
-nilai_y2 = int(input("Masukkan nilai y2 :"))
+// Class User (provided)
+public class User {
+    protected String nama;
+    protected String email;
+    protected int uang;
 
-jarak = ((nilai_x1-nilai_x2)**2 + (nilai_y1-nilai_y2)**2)**0.5
-jarak = int(jarak*10)/10
+    public User(String nama, String email, int uang) {
+        this.nama = nama;
+        this.email = email;
+        this.uang = uang;
+    }
 
-print(f"Titik ({nilai_x1},{nilai_y1}) dan ({nilai_x2},{nilai_y2}) adalah {jarak}")
+    public void withdraw(int jumlah) {
+        // implementation
+    }
+
+    public void generatePIN() {
+        // implementation
+    }
+
+    public void emailConfirmation() {
+        // implementation
+    }
+
+    public void getinfo() {
+        // implementation
+    }
+}
+
+// Class eWallet
+public class eWallet {
+    protected User user;
+    protected int saldo;
+    protected String PIN;
+
+    public eWallet(User user) {
+        this.user = user;
+        this.saldo = 0;
+        this.PIN = user.generatePIN();
+    }
+
+    public void topup(int jumlah) {
+        // implementation
+    }
+
+    public void transfer(eWallet eWallet, int jumlah) {
+        // implementation
+    }
+
+    public void withdraw(int jumlah) {
+        // implementation
+    }
+
+    public void getInfo() {
+        // implementation
+    }
+}
+
+// Class ShopeePay
+public class ShopeePay extends eWallet {
+    private final int feeTopup = 1000;
+    private final int feeTransfer = 500;
+
+    public ShopeePay(User user) {
+        super(user);
+    }
+
+    @Override
+    public void topup(int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void transfer(eWallet eWallet, int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void withdraw(int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void getInfo() {
+        // implementation
+    }
+}
+
+// Class GoPay
+public class GoPay extends eWallet {
+    private final int feeTopup = 1000;
+    private final int feeTransfer = 500;
+    private final int feeWithdraw = 1000;
+
+    public GoPay(User user) {
+        super(user);
+    }
+
+    @Override
+    public void topup(int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void transfer(eWallet eWallet, int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void withdraw(int jumlah) {
+        // implementation
+    }
+
+    @Override
+    public void getInfo() {
+        // implementation
+    }
+}
